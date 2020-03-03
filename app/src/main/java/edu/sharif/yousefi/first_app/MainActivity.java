@@ -41,9 +41,13 @@ public class MainActivity extends AppCompatActivity {
                     login_error.setText(R.string.Login_error);
                 }
                 else {
-                    User user = new User(userName.getText().toString(),
-                            email.getText().toString(),
-                            password.getText().toString());
+                    try {
+                        User user = new User(userName.getText().toString(),
+                                email.getText().toString(),
+                                password.getText().toString());
+                    }catch (Exception e){
+
+                    }
                 }
             }
         });
