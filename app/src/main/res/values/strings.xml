@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">first_app</string>
+    <string name="Login_error">Please enter your information correctly</string>
+</resources>
