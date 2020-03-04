@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">first_app</string>
     <string name="Login_error">Please enter your information correctly</string>
+    <string name="login">Login</string>
+    <string name="Sign_up">Sign up</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="title_activity_signup">SignupActivity</string>
+    <string name="user_not_found">User not found</string>
 </resources>
