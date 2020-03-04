@@ -1,5 +1,6 @@
 package edu.sharif.yousefi.first_app;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -9,6 +10,7 @@ import android.text.Editable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 public class SignupActivity extends AppCompatActivity {
@@ -39,9 +41,30 @@ public class SignupActivity extends AppCompatActivity {
                 }
                 else {
                     try {
+                        ProgressBar pb = findViewById(R.id.progressBar_su);
+                        pb.setVisibility(View.VISIBLE);
+
                         User user = new User(userName.getText().toString(),
                                 email.getText().toString(),
                                 password.getText().toString());
+
+                            Intent email_send = new Intent(Intent.ACTION_SEND);
+                            email_send.putExtra(Intent.EXTRA_EMAIL, new String[]{ user.getEmail()});
+                            email_send.putExtra(Intent.EXTRA_SUBJECT, "Sign up");
+                            email_send.putExtra(Intent.EXTRA_TEXT, "Welcome to our App");
+
+//need this to prompts email client only
+                            email_send.setType("message/rfc822");
+                            try {
+                                startActivity(Intent.createChooser(email_send, "Send mail..."));
+                                finish();
+                            }catch (android.content.ActivityNotFoundException ex){
+                                Toast.makeText(SignupActivity.this, "There are no email clients installed.", Toast.LENGTH_SHORT).show();
+
+                            }
+                        pb.setVisibility(View.GONE);
+                        startActivity(new Intent(SignupActivity.this,SearchActivity.class));
+
                     }catch (Exception e){
                         Toast toast=Toast.makeText(getApplicationContext(),e.getMessage(),Toast.LENGTH_SHORT);
                         toast.setMargin(50,50);
@@ -52,5 +75,6 @@ public class SignupActivity extends AppCompatActivity {
         });
 
     }
+
 
 }

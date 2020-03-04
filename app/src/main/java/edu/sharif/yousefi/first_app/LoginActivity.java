@@ -1,5 +1,6 @@
 package edu.sharif.yousefi.first_app;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -36,6 +37,7 @@ public class LoginActivity extends AppCompatActivity {
                 else {
                     try {
                         User user = User.find_user(usernameText.toString(), passwordText.toString());
+                        startActivity(new Intent(LoginActivity.this,SearchActivity.class));
                     }catch (Exception e){
                         Toast toast=Toast.makeText(getApplicationContext(),e.getMessage(),Toast.LENGTH_SHORT);
                         toast.setMargin(50,50);

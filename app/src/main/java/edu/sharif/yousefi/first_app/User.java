@@ -37,4 +37,8 @@ class User {
             throw new Exception(StrnigEnum.undefine_exception.getMessage());
         }
     }
+    public String getEmail(){
+        return this.email;
+    }
+
 }
