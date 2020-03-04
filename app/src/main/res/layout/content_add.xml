@@ -5,10 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".SearchActivity"
-    tools:showIn="@layout/activity_search">
+    tools:context=".AddActivity"
+    tools:showIn="@layout/activity_add">
 
     <RadioGroup
+        android:id="@+id/radioGroup"
         android:layout_width="match_parent"
         android:layout_height="30dp"
         android:layout_marginStart="8dp"
@@ -19,7 +20,7 @@
         android:background="@color/gray"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" >
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -27,7 +28,7 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/profile_guid_btn"
+                android:id="@+id/profile_ad_btn"
                 android:layout_width="20dp"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="30dp"
@@ -35,10 +36,10 @@
                 android:layout_marginRight="50dp"
                 android:layout_marginBottom="5dp"
                 android:layout_weight="1"
-                android:background="@drawable/profile_button" />
+                android:background="@drawable/profile" />
 
             <Button
-                android:id="@+id/city_guid_btn"
+                android:id="@+id/city_ad_btn"
                 android:layout_width="20dp"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="50dp"
@@ -46,10 +47,10 @@
                 android:layout_marginRight="50dp"
                 android:layout_marginBottom="5dp"
                 android:layout_weight="1"
-                android:background="@drawable/home_button" />
+                android:background="@drawable/home" />
 
             <Button
-                android:id="@+id/add_guid_btn"
+                android:id="@+id/add_ad_btn"
                 android:layout_width="20dp"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="50dp"
@@ -57,8 +58,24 @@
                 android:layout_marginRight="30dp"
                 android:layout_marginBottom="5dp"
                 android:layout_weight="1"
-                android:background="@drawable/add_button" />
+                android:background="@drawable/add_pressed" />
         </LinearLayout>
     </RadioGroup>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="0dp"
+        android:layout_height="621dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+    </android.support.constraint.ConstraintLayout>
 
 </android.support.constraint.ConstraintLayout>

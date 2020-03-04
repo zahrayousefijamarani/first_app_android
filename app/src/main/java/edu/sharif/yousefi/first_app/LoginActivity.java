@@ -37,7 +37,7 @@ public class LoginActivity extends AppCompatActivity {
                 else {
                     try {
                         User user = User.find_user(usernameText.toString(), passwordText.toString());
-                        startActivity(new Intent(LoginActivity.this,SearchActivity.class));
+                        startActivity(new Intent(LoginActivity.this, ProfileActivity.class));
                     }catch (Exception e){
                         Toast toast=Toast.makeText(getApplicationContext(),e.getMessage(),Toast.LENGTH_SHORT);
                         toast.setMargin(50,50);

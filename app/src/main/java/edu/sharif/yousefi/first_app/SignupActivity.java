@@ -2,8 +2,6 @@ package edu.sharif.yousefi.first_app;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
@@ -44,26 +42,31 @@ public class SignupActivity extends AppCompatActivity {
                         ProgressBar pb = findViewById(R.id.progressBar_su);
                         pb.setVisibility(View.VISIBLE);
 
-                        User user = new User(userName.getText().toString(),
+                        final User user = new User(userName.getText().toString(),
                                 email.getText().toString(),
                                 password.getText().toString());
-
-                            Intent email_send = new Intent(Intent.ACTION_SEND);
-                            email_send.putExtra(Intent.EXTRA_EMAIL, new String[]{ user.getEmail()});
-                            email_send.putExtra(Intent.EXTRA_SUBJECT, "Sign up");
-                            email_send.putExtra(Intent.EXTRA_TEXT, "Welcome to our App");
+                            new Thread(){
+                                @Override
+                                public void run() {
+                                    Intent email_send = new Intent(Intent.ACTION_SEND);
+                                    email_send.putExtra(Intent.EXTRA_EMAIL, new String[]{ user.getEmail()});
+                                    email_send.putExtra(Intent.EXTRA_SUBJECT, "Sign up");
+                                    email_send.putExtra(Intent.EXTRA_TEXT, "Welcome to our App");
 
 //need this to prompts email client only
-                            email_send.setType("message/rfc822");
-                            try {
-                                startActivity(Intent.createChooser(email_send, "Send mail..."));
-                                finish();
-                            }catch (android.content.ActivityNotFoundException ex){
-                                Toast.makeText(SignupActivity.this, "There are no email clients installed.", Toast.LENGTH_SHORT).show();
+                                    email_send.setType("message/rfc822");
+                                    try {
+                                        startActivity(Intent.createChooser(email_send, "Send mail..."));
+                                        finish();
+                                    }catch (android.content.ActivityNotFoundException ex){
+                                        Toast.makeText(SignupActivity.this, "There are no email clients installed.", Toast.LENGTH_SHORT).show();
 
-                            }
+                                    }
+                                }
+                            }.start();
+
                         pb.setVisibility(View.GONE);
-                        startActivity(new Intent(SignupActivity.this,SearchActivity.class));
+                        startActivity(new Intent(SignupActivity.this, ProfileActivity.class));
 
                     }catch (Exception e){
                         Toast toast=Toast.makeText(getApplicationContext(),e.getMessage(),Toast.LENGTH_SHORT);
