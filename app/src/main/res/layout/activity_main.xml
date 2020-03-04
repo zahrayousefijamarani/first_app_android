@@ -53,5 +53,13 @@
         app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="252dp"
+        android:layout_height="275dp"
+        app:srcCompat="@drawable/android_pic"
+        tools:layout_editor_absoluteX="79dp"
+        tools:layout_editor_absoluteY="117dp" />
+
 
 </android.support.constraint.ConstraintLayout>
