@@ -1,2 +1,3 @@
-# first_app_android
+# first android app
 - login signup 
+- Multiple pages(like instagram)
